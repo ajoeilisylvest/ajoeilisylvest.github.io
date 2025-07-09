@@ -127,7 +127,6 @@ button:hover {
   .mobile-btn {
     margin-left: auto;
   }
-
   body {
     margin: 5px;
   }
@@ -135,6 +134,8 @@ button:hover {
 
 /* Blog Post Page Styling */
 .blog-post-page {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   font-family: 'Overpass Mono', monospace;
   background-image: url("/img/holographic-background.jpg");
@@ -160,7 +161,7 @@ button:hover {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 20px;
+  padding: 15px;
   position: relative;
   overflow: hidden;
 }
@@ -177,7 +178,112 @@ button:hover {
   }
 
   .back-btn {
-    font-size: 18px;
+    font-size: 15px;
   }
 
+  .intro-text {
+    font-size: 15px;
+  }
+}
+
+.review {
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+  padding: 15px;
+  margin: 0 10px 20px; /* Tightened margins */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  color: black;
+  font-family: 'Overpass Mono', monospace;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  align-items: flex-start; /* Align image and text to top */
+  gap: 20px; /* Replace margin-right on image with gap */
+}
+
+.review img {
+  width: 220px;
+  height: auto; /* Let height adjust naturally */
+  object-fit: contain; /* Show ENTIRE image without cropping */
+  border-radius: 4px;
+  margin-right: 20px;
+  flex-shrink: 0;
+  object-position: top; /* Ensure important parts of cover are visible */
+}
+
+.review-text {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 0; /* Remove any default padding */
+  margin-bottom: 0; /* Remove any default margin */
+}
+
+.review-text h2 {
+  margin: 0;
+  font-size: 20px;
+  color: black;
+  word-break: break-word; /* Prevent long titles from overflowing */
+}
+
+.review-text h3 {
+  margin: 5px 0;
+  font-size: 16px;
+  font-weight: normal;
+  color: black;
+}
+
+.review-text h4 {
+  margin: 5px 0 10px 0;
+  font-size: 14px;
+  font-weight: normal;
+  color: black;
+}
+
+.review-text p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: black;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .review {
+    flex-direction: row; /* Keep row layout */
+    padding: 12px;
+  }
+
+  .review img {
+    width: 100px; /* Slightly larger than before */
+    height: 150px; /* Maintain aspect ratio */
+    margin-right: 10px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .review {
+    flex-direction: row; /* Try to keep row layout */
+  }
+
+  .review img {
+    width: 80px;
+    height: 120px;
+  }
+}
+
+/* Extreme cases where we must go to column layout */
+@media (max-width: 350px) {
+  .review {
+    flex-direction: column;
+  }
+
+  .review img {
+    width: 80px;
+    height: 120px;
+    margin-right: 0;
+    margin-bottom: 10px;
+    align-self: center; /* Center image when in column layout */
+  }
 }
